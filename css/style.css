@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
+
+
+
+:root{
+    --background-pertama: #0E0E0E;
+    --background-kedua: #1E1E1E;
+    --background-ketiga: #1e1e1ea8;
+    --main-title: #B8B8B8;
+    --scd-title: #6b6b6b;
+    --text: #fff;
+    --red: #CF0A0A;
+    --orange: #DC5F00;
+}
+
+*{
+    margin: 0;  
+    padding: 0;  
+}
+
+body{
+    background-color: var(--background-pertama);
+    color: var(--text);
+    font-family: sans-serif;
+}
+
+
+.container {
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* navbar */
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    z-index: 3;
+    transition: .3s ease-out;
+}
+
+.navbar.navbar-colored{
+    /* From https://css.glass */
+    background: var(--background-ketiga);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.navbar .container-nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 100px;
+}
+
+.navbar .container-nav .navbar-menu{
+    margin-left: auto;
+}
+
+.navbar .container-nav .navbar-menu ul{
+    position: relative;
+    display: flex;
+    transition: .3s linear;
+}
+
+.navbar .container-nav .navbar-menu ul li{
+    position: relative;
+    list-style: none;
+    margin: 20px 10px;
+    flex: 1 1 auto;
+}
+
+.navbar .container-nav .navbar-menu ul li a.active{
+    background: -webkit-linear-gradient(45deg,var(--orange), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+}
+
+.navbar .container-nav .navbar-menu ul li a{
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--scd-title);
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+
+.navbar .container-nav .navbar-menu ul li:hover a {
+  color: var(--main-title);
+}
+
+.navbar .container-nav .navbar-menu ul:hover li> :not(:hover){
+   opacity: .5;
+}
+.navbar .container-nav .navbar-menu ul:hover li> a.active{
+    opacity: 1; 
+}
+
+
+.navbar .container-nav .navbar-menu ul li:hover a:after, 
+.navbar .container-nav .navbar-menu ul li a.active::after{
+  width: 100%;
+  right: 0%;
+  left: 0%;
+}
+
+.navbar .container-nav .navbar-menu ul li a:after {
+  content: "";
+  pointer-events: none;
+  bottom: -5px;
+  right: 0%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--scd-title);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+.navbar .container-nav .navbar-btn{
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--main-title);
+    height: max-content;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 10px;
+    transition: .3s linear;
+    display: none;
+}
+
+.navbar .container-nav .navbar-brand{
+    font-family: 'Prosto One', cursive;
+    font-size: 20px;
+    margin-top: 18px;
+}
+
+.navbar .container-nav .navbar-brand a{
+    text-decoration: none;
+    color: var(--main-title);
+}
+
+.navbar .container-nav .navbar-brand a>span{
+    font-size: 24px;
+    background: -webkit-linear-gradient(45deg,var(--orange), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+
+@media only screen and (max-width: 992px) {
+    .navbar .container-nav{
+        transition: .4s;
+    }
+
+    .navbar .container-nav .navbar-btn{
+        text-align: center;
+        width: 20px;
+        display: block;
+        margin-left: auto;
+        background-color: var(--background-kedua);
+    }
+    .navbar .container-nav .navbar-btn:hover{
+        color: var(--scd-title);
+    }
+    
+    
+    .navbar .container-nav .navbar-menu ul{
+        position: absolute;
+        right: 110px;
+        top: 60px;
+        border-radius: 5px;
+        flex-direction: column;
+        align-items: center;
+        width:40px;
+        height: 0px;
+        background: var(--background-ketiga);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        overflow: hidden;
+        transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .navbar .container-nav .navbar-menu.active ul{
+        width: 150px;
+        height: 250px;
+    }
+
+    .navbar .container-nav .navbar-menu ul li{
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 15px; 
+    }
+
+} 
+
+
+@media only screen and (max-width: 576px){
+    .navbar .container-nav{
+        padding: 0 20px;
+        transition: .4s;
+    }
+
+    .navbar .container-nav .navbar-menu ul,
+    .navbar .container-nav .navbar-menu.active ul{
+        right: 30px;
+    }
+}
+
+
+/* home */

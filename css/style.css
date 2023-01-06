@@ -3,12 +3,12 @@
 
 
 :root{
-    --background-pertama: #0E0E0E;
+    --background-pertama: #0e0e0e   ;
     --background-kedua: #1E1E1E;
     --background-ketiga: #1e1e1ea8;
     --main-title: #B8B8B8;
     --scd-title: #6b6b6b;
-    --text: #fff;
+    --text: rgb(199, 199, 199);
     --red: #CF0A0A;
     --orange: #DC5F00;
 }
@@ -25,9 +25,9 @@ body{
 }
 
 
-.container {
+.container{
+    position: relative;
     width: 100%;
-    padding: 0 20px;
 }
 
 /* navbar */
@@ -68,7 +68,8 @@ body{
 .navbar .container-nav .navbar-menu ul li{
     position: relative;
     list-style: none;
-    margin: 20px 10px;
+    margin: 0 10px;
+    margin-top: 13px;
     flex: 1 1 auto;
 }
 
@@ -81,7 +82,6 @@ body{
 }
 
 .navbar .container-nav .navbar-menu ul li a{
-    font-size: 16px;
     text-decoration: none;
     color: var(--scd-title);
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -137,7 +137,7 @@ body{
 .navbar .container-nav .navbar-brand{
     font-family: 'Prosto One', cursive;
     font-size: 20px;
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
 .navbar .container-nav .navbar-brand a{
@@ -215,4 +215,43 @@ body{
 }
 
 
+.headline{
+    font-size: 72px;
+    letter-spacing: 5px;
+    font-family: 'Prosto One', cursive , Arial, Helvetica, sans-serif;
+}
+
+.scdheadline{
+    font-family: 'Prosto One', cursive , Arial, Helvetica, sans-serif;
+    font-size: 44.5px;
+    color: var(--main-title);
+    letter-spacing: 5px;
+}
+
+.trdheadline{
+    font-size: 27.5px;
+    color: var(--scd-title);
+}
+
+.body-text{
+    font-size: 17px;
+    color: var(--text);
+}
+
 /* home */
+
+.main-home{
+    position: relative;
+    width: 100%;
+}
+
+.main-home .home-left{
+    width: 100%;
+    max-width: 768px;
+    display: block;
+    margin: 0 100px;
+}
+
+.main-home .home-left .home-title{
+    padding-top: 157px;
+}

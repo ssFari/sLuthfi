@@ -9,28 +9,29 @@
     <title>sLuhfi</title>
   </head>
   <body>
-    <nav id="navbar" class="navbar">
-      <div class="container-nav">
-        <div class="navbar-brand">
-          <a href="#"> s<span class="trd-headline">L</span>uthfi.com </a>
-        </div>
-        <div id="navMenu" class="navbar-menu">
-          <ul>
-            <li><a class="nav-link body-text active" href="#home">Home</a></li>
-            <li><a class="nav-link body-text" href="#about">About Me</a></li>
-            <li>
-              <a class="nav-link body-text" href="#myproject">My Project</a>
-            </li>
-            <li><a class="nav-link body-text" href="#service">Service</a></li>
-            <li><a class="nav-link body-text" href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="navbar-btn">
-          <i id="icon" class="fa-solid fa-bars"></i>
-        </div>
-      </div>
-    </nav>
 
+    <nav id="navbar" class="navbar">
+        <div class="container-nav">
+          <div class="navbar-brand">
+            <a href="#"> s<span class="trd-headline">L</span>uthfi.com </a>
+          </div>
+          <div id="navMenu" class="navbar-menu">
+            <ul>
+              <li><a class="nav-link body-text active" href="#home">Home</a></li>
+              <li><a class="nav-link body-text" href="#about">About Me</a></li>
+              <li>
+                <a class="nav-link body-text" href="#myproject">My Project</a>
+              </li>
+              <li><a class="nav-link body-text" href="#service">Service</a></li>
+              <li><a class="nav-link body-text" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="navbar-btn">
+            <i id="icon" class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    
     <div class="container">
       <section id="home" class="main-home">
         <div class="home-left">
@@ -40,8 +41,9 @@
               <h1>I'M <span id="title"></span></h1>
             </div>
             <p>
-              I am intermediate in <span>UI/UX design</span> and <span>Web Development.</span> 
-              <br> Are you curious? See more about me
+              I am intermediate in <span>UI/UX design</span> and
+              <span>Web Development.</span> <br />
+              Are you curious? See more about me
             </p>
           </div>
           <div class="home-action">
@@ -53,19 +55,70 @@
             </div>
             <div class="action2">
               <a href="#" class="home-link">
-                <span>My Resume</span>                                                              
+                <span>My Resume</span>
                 <i class="fa-solid fa-fw fa-arrow-down"></i>
                 <i class="fa-solid fa-fw fa-file-alt"></i>
               </a>
             </div>
           </div>
         </div>
+        <div class="home-right">
+          <img src="/asset/SVG/foto2.svg" alt="">
+        </div>
       </section>
-      <section id="about" class="main-about"></section>
-      <section id="myproject" class="main-project"></section>
-      <section id="service" class="main-service"></section>
-      <section id="contact" class="main-contact"></section>
+      <section id="about" class="main-about">
+        <div class="main-title">
+          <h3>subb-title</h3>
+          <h1>About Me</h1>
+          <img src="asset/Vector 4.svg" alt="">
+        </div>
+        <div class="content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et similique recusandae consequuntur magni. Eligendi soluta consequuntur odio vero nam maxime nemo velit at, delectus, ab omnis aliquam voluptatem qui minus.
+          </p>
+        </div>
+      </section>
+      <section id="myproject" class="main-project">
+        <div class="main-title">
+          <h3>subb-title</h3>
+          <h1>Title</h1>
+          <img src="asset/Vector 4.svg" alt="">
+        </div>
+      </section>
+      <section id="service" class="main-service">
+        <div class="main-title">
+          <h3>subb-title</h3>
+          <h1>Title</h1>
+          <img src="asset/Vector 4.svg" alt="">
+        </div>
+      </section>
+      <section id="contact" class="main-contact">
+        <div class="main-title">
+          <h3>subb-title</h3>
+          <h1>Title</h1>
+          <img src="asset/Vector 4.svg" alt="">
+        </div>
+      </section>
     </div>
+  <body>
+    <script>
+      const scrollDownElements = document.getElementsByClassName("container");
+
+      function scrollNavbar(event) {
+        const navBar = document.getElementById("navbar");
+
+        if (event.target.scrollTop > 30) {
+          navBar.classList.add("navbar-colored");
+        } else {
+          navBar.classList.remove("navbar-colored");
+        }
+      }
+
+      for (let i = 0; i < scrollDownElements.length; i++) {
+        scrollDownElements[i].addEventListener("scroll", scrollNavbar);
+      }
+
+    </script>
     <script src="js/index.js"></script>
   </body>
 </html>

@@ -343,8 +343,8 @@ body{
 
 .main-home .home-left .home-action .action2 {
     position: relative;
-    overflow: hidden;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .main-home .home-left .home-action .action2:hover span{
@@ -393,7 +393,6 @@ body{
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
 
 }
-
 
 .main-home .home-left .home-action .action2:hover .home-link::after{
     right: 0 ;

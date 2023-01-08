@@ -9,41 +9,75 @@ btnNav.addEventListener("click", () => {
   iconNav.classList.toggle("fa-xmark");
 });
 
-navbar;
 
-window.onscroll = () => {
-  scrollNavbar();
-};
+document.addEventListener("DOMContentLoaded", function() {
+  const scrollDownElements = document.querySelectorAll(".container");
+  const secAll = document.querySelectorAll("section[id]");
+  const navbar = document.getElementById("navbar");  // Tambahkan elemen navbar
 
-scrollNavbar = () => {
-  const navBar = document.getElementById("navbar");
-  const navMenu = document.querySelectorAll("#navMenu .nav-link");
+  scrollDownElements.forEach((scrollDownElement) => {  // Tambahkan loop for
+    scrollDownElement.addEventListener("scroll", () => {
+      const scrY = scrollDownElement.scrollTop;
+      secAll.forEach((current) => {
+        const secHeight = current.offsetHeight;
+        const secTop = current.offsetTop - 200;
+        const secId = current.getAttribute("id");
 
-  if (document.documentElement.scrollTop > 30) {
-    navBar.classList.add("navbar-colored");
-  } else {
-    navBar.classList.remove("navbar-colored");
-  }
-};
+        console.log(secId)
 
-const secAll = document.querySelectorAll("section[id]");
-window.addEventListener("scroll", () => {
-  const scrY = window.pageYOffset;
-  secAll.forEach((current) => {
-    const secHeight = current.offsetHeight;
-    const secTop = current.offsetTop - 200;
-    const secId = current.getAttribute("id");
-
-    if (scrY > secTop && scrY <= secTop + secHeight) {
-      document
-        .querySelector('li a[href*="' + secId + '"]')
-        .classList.add("active");
-    } else {
-      document
-        .querySelector('li a[href*="' + secId + '"]')
-        .classList.remove("active");
-    }
+        if (scrY > secTop && scrY <= secTop + secHeight) {
+          document
+            .querySelector('li a[href*="' + secId + '"]')
+            .classList.add("active");
+        } else {
+          document
+            .querySelector('li a[href*="' + secId + '"]')
+            .classList.remove("active");
+        }
+      });
+    });
   });
+});
+
+
+
+// const secAll = document.querySelectorAll("section[id]");
+// window.addEventListener("scroll", () => {
+//   const scrY = window.pageYOffset;
+//   secAll.forEach((current) => {
+//     const secHeight = current.offsetHeight;
+//     const secTop = current.offsetTop - 200;
+//     const secId = current.getAttribute("id");
+
+//     if (scrY > secTop && scrY <= secTop + secHeight) {
+//       document
+//         .querySelector('li a[href*="' + secId + '"]')
+//         .classList.add("active");
+//     } else {
+//       document
+//         .querySelector('li a[href*="' + secId + '"]')
+//         .classList.remove("active");
+//     }
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Kode Anda di sini
+  const scrollDownElements = document.getElementsByClassName("container");
+
+  function scrollNavbar(event) {
+    const navBar = document.getElementById("navbar");
+
+    if (event.target.scrollTop > 30) {
+      navBar.classList.add("navbar-colored");
+    } else {
+      navBar.classList.remove("navbar-colored");
+    }
+  }
+
+  for (let i = 0; i < scrollDownElements.length; i++) {
+    scrollDownElements[i].addEventListener("scroll", scrollNavbar);
+  }
 });
 
 // text aniation
@@ -80,21 +114,21 @@ let isEnd = false;
 
 function loop() {
   isEnd = false;
-  text.innerHTML = currentPharase.join('');
+  text.innerHTML = currentPharase.join("");
 
   if (i < textLoad.length) {
     if (!isDelete && j <= textLoad[i].length) {
       currentPharase.push(textLoad[i][j]);
       j++;
-      text.innerHTML = currentPharase.join('');
+      text.innerHTML = currentPharase.join("");
     }
     if (isDelete && j <= textLoad[i].length) {
       currentPharase.pop(textLoad[i][j]);
       j--;
-      text.innerHTML = currentPharase.join('');
+      text.innerHTML = currentPharase.join("");
     }
 
-    if (j == textLoad[i].length ) {
+    if (j == textLoad[i].length) {
       isDelete = true;
       isEnd = true;
     }
@@ -102,19 +136,18 @@ function loop() {
     if (isDelete && j === 0) {
       currentPharase = [];
       isDelete = false;
-      i++
+      i++;
       if (i == textLoad.length) {
-        i = 0
+        i = 0;
       }
     }
   }
 
-const speedUp = Math.random() * (80 - 50) + 50;
-const normalSpeed = Math.random() * (300-200) + 200;
-const time = isEnd ? 2000 : isDelete ? speedUp : normalSpeed;
+  const speedUp = Math.random() * (80 - 50) + 50;
+  const normalSpeed = Math.random() * (300 - 200) + 200;
+  const time = isEnd ? 2000 : isDelete ? speedUp : normalSpeed;
 
-setTimeout(loop, time)
-
+  setTimeout(loop, time);
 }
 
-loop()
+loop();

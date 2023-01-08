@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
 :root{
@@ -15,20 +15,53 @@
 
 *{
     margin: 0;  
-    padding: 0;  
+    padding: 0;
 }
 
 body{
     background-color: var(--background-pertama);
     color: var(--text);
-    font-family: sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    
 }
 
+section{
+    scroll-snap-align: start;
+    height: 100vh;
+}
 
 .container{
     position: relative;
     width: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth;
 }
+
+    /* section {
+        position: relative;
+    }
+
+    section::before{
+        content: url("/asset/SVG/Vector\ 1.svg");
+        position: absolute;
+        left: -760px;
+        top: -20px;
+        z-index: -1;
+    }
+
+    section::after{
+        content: url("/asset/SVG/Vector\ 2.svg");
+        position: absolute;
+        right: -760px;
+        bottom: 0px;
+        z-index: -1;
+
+    } */
+
+
 
 /* navbar */
 
@@ -218,18 +251,26 @@ body{
 
 .main-home{
     position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+
+.main-home svg{
     width: 100%;
 }
 
 .main-home .home-left{
+    width: 100%;
+    max-width: 800px;
     display: inline-block;
-    margin: 0 100px;
+    margin: 0 auto 0 100px;
+    padding-bottom: 200px;
 }
 
 .main-home .home-left .home-title{
     position: relative;
-    width: 100%;
-    max-width: 768px;
     padding-top: 157px;
     padding-bottom: 20px;
 }
@@ -247,6 +288,7 @@ body{
 
 .main-home .home-left .home-title h3{
     font-size: 27.5px;
+    color: var(--scd-title)
 }
 
 .main-home .home-left .home-title .main-title h1 #title{
@@ -254,7 +296,7 @@ body{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     border-right: 3px solid var(--scd-title);
-    /* animation: animate 1s infinite; */
+    animation: animate 1s infinite;
 }
 
 .main-home .home-left .home-title p{
@@ -267,7 +309,8 @@ body{
 {
     background: -webkit-linear-gradient(45deg,var(--orange), var(--red));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
+
 }
 
 @keyframes animate { 
@@ -396,13 +439,54 @@ body{
 
 .main-home .home-left .home-action .action2:hover .home-link::after{
     right: 0 ;
-    width: calc(100% - 104px);
+    width: calc(100% - 92px);
 }
-@media only screen and (max-width: 576px){
 
+.main-home .home-right{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.main-home .home-right img{
+    width: 100%;
+    height: 100%;
+}
+
+
+@media only screen and (max-width: 992px){
+    .main-home{
+        flex-wrap: wrap-reverse;
+        height: auto;
+    }
+
+    .main-home .home-right{
+        display: flex;
+        justify-content: center;
+        margin: 0 20px;
+    }
+
+    .main-home .home-right img{
+        width: 100%;
+        max-width: 500px;
+        height: 100%;
+        max-height: 500px;
+        padding-top: 50px;
+    }
+
+    .main-home .home-left .home-title{
+        padding-top: 50px;
+    }
+}
+
+
+@media only screen and (max-width: 576px){
+    
     .main-home .home-left{
         margin: 0 20px;
     }
+
     .main-home .home-left .home-title .main-title h1{
         font-size: 38px;
     }
@@ -416,4 +500,40 @@ body{
     }
     
 
+}
+
+
+/* Title */
+
+.main-title{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-title h1{
+    font-size: 44.5px;
+    color: var(--main-title);
+    margin: 10px 0;
+    letter-spacing: 3px;
+}
+
+.main-title h3{
+    font-size: 17px;
+    color: var(--scd-title);
+}
+
+.main-title img{
+    margin-bottom: 50px;
+}
+
+/* About Me */
+
+.main-about{
+    width: 100%;
+    padding-top: 70px;
+    background-color: var(--background-ketiga);
 }

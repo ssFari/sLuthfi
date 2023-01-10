@@ -4,7 +4,7 @@
 
 :root{
     --background-pertama: #0e0e0e   ;
-    --background-kedua: #1E1E1E;
+    --background-kedua: #131313;
     --background-ketiga: #1e1e1ea8;
     --main-title: #B8B8B8;
     --scd-title: #6b6b6b;
@@ -36,6 +36,7 @@ section{
     width: 100%;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100vh;
     scroll-behavior: smooth;
 }
@@ -76,7 +77,6 @@ section{
 .navbar.navbar-colored{
     /* From https://css.glass */
     background: var(--background-ketiga);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
@@ -207,13 +207,12 @@ section{
         position: absolute;
         right: 110px;
         top: 60px;
-        border-radius: 5px;
+        border-radius: 0 0 5px 5px;
         flex-direction: column;
         align-items: center;
         width:40px;
         height: 0px;
         background: var(--background-ketiga);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         overflow: hidden;
@@ -255,6 +254,8 @@ section{
     flex-direction: row;
     width: 100%;
     height: auto;
+    min-height: 100vh;
+    overflow-y: hidden;
 }
 
 .main-home svg{
@@ -328,14 +329,14 @@ section{
     padding-top: 20px;
 }
 
-.main-home .home-left .home-action .action1{
+.action1{
     height: 30px;
     width: 145px;
     cursor: pointer;
 }
 
-.main-home .home-left .home-action .action2 .home-link,
-.main-home .home-left .home-action .action1 .home-link{
+.action2 .home-link,
+.action1 .home-link{
     position: relative;
     padding-top: 8px;
     padding-bottom: 5px;
@@ -345,25 +346,25 @@ section{
     transition: .3s linear;
 }
 
-.main-home .home-left .home-action .action1 .home-link span{
+.action1 .home-link span{
     padding-left: 7px;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-.main-home .home-left .home-action .action1 .home-link i{
+.action1 .home-link i{
     padding-left: 8px;
 }
 
-.main-home .home-left .home-action .action1:hover .home-link span{
+.action1:hover .home-link span{
     padding-left: 0px;   
 }
 
-.main-home .home-left .home-action .action1:hover .home-link{
+.action1:hover .home-link{
     transition: .4s linear;
     color: var(--main-title);
 }
 
-.main-home .home-left .home-action .action1 .home-link::before{
+.action1 .home-link::before{
     content: "";
     position: absolute;
     left: 0;
@@ -375,7 +376,7 @@ section{
     z-index: -1;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
 }
-.main-home .home-left .home-action .action1:hover .home-link::before{
+.action1:hover .home-link::before{
     border: none;
     width: 135px;  
     background: linear-gradient(45deg,var(--orange), var(--red));
@@ -384,46 +385,46 @@ section{
 
 
 
-.main-home .home-left .home-action .action2 {
+.action2 {
     position: relative;
     cursor: pointer;
     overflow: hidden;
 }
 
-.main-home .home-left .home-action .action2:hover span{
+.action2:hover span{
     background: -webkit-linear-gradient(45deg,var(--orange), var(--red));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.main-home .home-left .home-action .action2:hover .home-link{
+.action2:hover .home-link{
     color: var(--text)
 }
 
-.main-home .home-left .home-action .action2 .home-link > i.fa-arrow-down{
+.action2 .home-link > i.fa-arrow-down{
     position: absolute;
     transform: translateY(-20px);
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
 
 }
 
-.main-home .home-left .home-action .action2:hover .home-link > i.fa-arrow-down{
+.action2:hover .home-link > i.fa-arrow-down{
     transform: translateY(0);
 }
 
-.main-home .home-left .home-action .action2 .home-link > i.fa-file-alt{
+.action2 .home-link > i.fa-file-alt{
     position: relative;
     transform: translateY(0px);
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-.main-home .home-left .home-action .action2:hover .home-link > i.fa-file-alt{
+.action2:hover .home-link > i.fa-file-alt{
     transform: translateY(30px);
     opacity: 0;
 }
 
 
-.main-home .home-left .home-action .action2 .home-link::after{
+.action2 .home-link::after{
     content: "";
     position: absolute;
     bottom: 0;
@@ -437,9 +438,9 @@ section{
 
 }
 
-.main-home .home-left .home-action .action2:hover .home-link::after{
-    right: 0 ;
-    width: calc(100% - 92px);
+.action2:hover .home-link::after{
+    right: 4px ;
+    width: calc(100% - 97px);
 }
 
 .main-home .home-right{
@@ -533,7 +534,102 @@ section{
 /* About Me */
 
 .main-about{
+    position: relative;
     width: 100%;
+    height: auto;
     padding-top: 70px;
-    background-color: var(--background-ketiga);
+    padding-bottom: 70px;
+    background-color: var(--background-kedua);
+}
+
+.main-about .content {
+    display: flex;
+    margin: 0 100px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main-about .content .profile-img{
+    position: relative;
+
+}
+
+.main-about .content .profile{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    margin-bottom: 100px;
+    width: 50%;
+}
+.main-about .content .profile .profile-title{
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 20.5px;
+    text-align: center;
+}
+
+.main-about .content .profile .profile-title h2::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    margin-top: 10px;
+    background-color: var(--scd-title);
+    display: block;
+}
+
+.main-about .content .profile .profile-decs{
+    font-size: 17px;
+    margin: 30px 0;
+}
+
+.main-about .content .profile .profile-info{
+    margin: 0 0 30px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-about .content .profile .profile-info .info-detail{
+    text-align: center;
+    width: 100%;
+    max-width: 100px;
+    flex: 1 1 100px;
+}
+
+.main-about .content .profile .profile-info .info-detail span{
+    font-size: 27.5px;
+}
+
+.main-about .content .profile .profile-info .info-detail p{
+    font-size: 14px;
+    color: var(--scd-title);
+}
+
+.main-about .content .profile .action2
+{
+    width: max-content;
+    height: 30px;
+    margin-top: 20px;
+}
+
+
+@media only screen and (max-width: 576px){
+    .main-about .content{   
+        margin: 0 20px;
+    }
+
+    .main-about .content .profile-img img{
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+
+    }
+    .main-about .content .profile{
+        text-align: center;
+        width: 100%;
+    }
 }

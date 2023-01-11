@@ -23,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const secTop = current.offsetTop - 200;
         const secId = current.getAttribute("id");
 
-        console.log(secId)
-
         if (scrY > secTop && scrY <= secTop + secHeight) {
           document
             .querySelector('li a[href*="' + secId + '"]')
@@ -151,3 +149,18 @@ function loop() {
 }
 
 loop();
+
+/** 
+ * ==============================================
+ * skill
+ * ==============================================
+*/
+
+document.addEventListener("DOMContentLoaded", function() {
+  const barPersentase = document.getElementsByClassName("persentase-bar");
+  for (let i = 0; i < barPersentase.length; i++) {
+      const nilai = barPersentase[i].closest('.skill-data').querySelector(".nilai");
+      barPersentase[i].style.width = nilai.textContent;
+  }
+});
+

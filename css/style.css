@@ -36,7 +36,7 @@ section{
 .container{
     position: relative;
     width: 100%;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100vh;
@@ -536,12 +536,11 @@ section{
     margin: 0 100px;
     justify-content: space-around;
     flex-wrap: wrap;
-    align-items: center;
 }
 
 .main-about .content .profile-img{
     position: relative;
-
+    margin-bottom: 50px;
 }
 
 .main-about .content .profile{
@@ -552,6 +551,8 @@ section{
     margin-bottom: 100px;
     width: 50%;
 }
+
+
 .main-about .content .profile .profile-title{
     position: relative;
     margin-bottom: 20px;
@@ -579,7 +580,7 @@ section{
 .main-about .content .profile .profile-info{
     margin: 0 0 30px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .main-about .content .profile .profile-info .info-detail{
@@ -600,15 +601,20 @@ section{
 
 .main-about .content .profile .action2
 {
-    width: max-content;
+    text-align: center;
+    min-width: 200px;
+    max-width: 200px;
     margin-top: 20px;
 }
-
-
 @media only screen and (max-width: 576px){
+    .main-about .content-2,   
     .main-about .content{   
         margin: 0 20px;
     }
+
+}
+
+@media only screen and (max-width: 992px){
 
     .main-about .content .profile-img img{
         position: relative;
@@ -619,5 +625,112 @@ section{
     .main-about .content .profile{
         text-align: center;
         width: 100%;
+        align-items: center;
+    }
+
+    .main-about .content .profile .action2
+    {
+        width: 50%;
+        
+    }
+
+ 
+}
+
+
+/* skill */
+.content-2{
+    margin: 0 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.skill{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.skill-content{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 30px;
+}
+
+.skill-content hr{
+    margin-left: 50px;
+}
+
+.skill-content .skill-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.skill-content .skill-header i{
+    font-size: 24.5px;
+}
+
+.skill-content .skill-header i.icon-head{
+    margin-right: 20px;
+}
+
+.skill-content .skill-header i.fa-chevron-down{
+    margin-left: auto;
+}
+
+.skill-content .skill-header .skill-title h2{
+    padding-bottom: 5px;    
+}
+
+.skill-content .skill-header .skill-title span{
+    font-size: 17px;
+    color: var(--scd-title);
+}
+
+.skill-list{
+    row-gap: 1.5rem;
+    padding-left: 50px;
+}
+
+.skill-list .skill-data{
+    margin: 20px 0;
+}
+
+.skill-list .skill-data .skills-title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.skill-list .skill-data .skills-title h3{
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.skill-bar,.persentase-bar{
+    height: 5px;
+    border-radius: .25rem;
+}
+
+.skill-bar {
+    background-color: var(--scd-title);
+}
+
+.persentase-bar{
+    display: block;
+    background: linear-gradient(45deg,var(--orange), var(--red));
+    background: -webkit-linear-gradient(45deg,var(--orange), var(--red));
+}
+
+
+@media only screen and (max-width: 992px){
+    .content-2{
+        flex-direction: column;
+    }
+
+    .skill-content{
+        margin: 20px 0;
     }
 }

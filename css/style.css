@@ -658,8 +658,13 @@ section{
 }
 
 .skill-content hr{
-    margin-left: 50px;
+    margin-left: 40px; opacity: .3;
 }
+
+.skill-content.active .skill-list{
+    height: 100%;
+}
+
 
 .skill-content .skill-header{
     display: flex;
@@ -678,6 +683,12 @@ section{
 
 .skill-content .skill-header i.fa-chevron-down{
     margin-left: auto;
+    transform: rotate(-180deg);
+
+}
+
+.skill-content.active .skill-header i.fa-chevron-down{
+    transform: rotate(0);
 }
 
 .skill-content .skill-header .skill-title h2{
@@ -688,10 +699,14 @@ section{
     font-size: 17px;
     color: var(--scd-title);
 }
-
 .skill-list{
     row-gap: 1.5rem;
-    padding-left: 50px;
+    padding-left: 40px;
+    height: 0;
+}
+
+.skill-content.unactive .skill-list{
+    overflow: hidden;
 }
 
 .skill-list .skill-data{

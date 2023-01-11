@@ -164,3 +164,26 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+/**================================================== */
+
+
+const skillContent = document.getElementsByClassName("skill-content"),
+        skillHeader = document.querySelectorAll(".skill-header")
+
+function toggleSkills() {
+    let item = this.parentNode;
+    for (let i = 0; i < skillContent.length; i++) {
+      if(skillContent[i] !== item) {
+        skillContent[i].classList.remove('active');
+        skillContent[i].classList.add('unactive');
+      }
+    }
+    item.classList.toggle('active');
+    item.classList.toggle('unactive');
+}
+
+skillHeader.forEach((el) => {
+    el.addEventListener('click', toggleSkills);
+});
+
+

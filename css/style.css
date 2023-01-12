@@ -35,8 +35,8 @@ section{
 
 .container{
     position: relative;
-    width: 100%;
     scroll-snap-type: y proximity;
+    width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100vh;
@@ -322,7 +322,7 @@ section{
     }
 }
 
-.main-home .home-left .home-action{
+.main-home .home-left .home.button{    
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -331,84 +331,31 @@ section{
     padding-top: 20px;
 }
 
-.action1{
-    padding-top: 10px;
-    height: 30px;
-    width: 145px;
+.button{
     cursor: pointer;
 }
 
-.action2 .home-link,
-.action1 .home-link{
+.button .home-link{
     position: relative;
     padding-top: 8px;
     padding-bottom: 5px;
     text-decoration: none;
-    color: var(--main-title);
+    color: var(--scd-title);
     font-size: 17px;
     transition: .3s linear;
 }
 
-.action1 .home-link span{
-    padding-left: 7px;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-}
-
-.action1 .home-link i{
-    padding-left: 8px;
-}
-
-.action1:hover .home-link span{
-    padding-left: 0px;   
-}
-
-.action1:hover .home-link{
-    transition: .4s linear;
-    color: var(--main-title);
-}
-
-.action1 .home-link::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    border:1px solid var(--scd-title);
-    width: 35px;
-    height: 35px;
-    border-radius: 20px;
-    z-index: -1;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-}
-.action1:hover .home-link::before{
-    border: none;
-    width: 135px;  
-    background: linear-gradient(45deg,var(--orange), var(--red));
-    background: -webkit-linear-gradient(45deg,var(--orange), var(--red));
-}
-
-
-
-.action2 {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    padding: 10px;
-    border-radius: 15px;
-    transition: .4s linear; 
-    background: var(--background-keempat);   
-}
-
-.action2:hover{
+.button:hover{
     transition: .4s linear;
     background: var(--background-keempat-70);    
     
 }
 
-.action2:hover .home-link{
+.button:hover .home-link{
     color: var(--text)
 }
 
-.action2 .home-link > i.fa-arrow-down{
+.button .home-link > i.fa-arrow-down{
     position: absolute;
     opacity: 0;
     transform: translateY(-30px);
@@ -416,18 +363,18 @@ section{
 
 }
 
-.action2:hover .home-link > i.fa-arrow-down{
-    transform: translateY(0);
+.button:hover .home-link > i.fa-arrow-down{
+    transform: translateY(5px);
     opacity: 1;
 }
 
-.action2 .home-link > i.fa-file-alt{
+.button .home-link > i.fa-file-alt{
     position: relative;
     transform: translateY(0px);
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-.action2:hover .home-link > i.fa-file-alt{
+.button:hover .home-link > i.fa-file-alt{
     transform: translateY(30px);
     opacity: 0;
 }
@@ -599,7 +546,7 @@ section{
     color: var(--scd-title);
 }
 
-.main-about .content .profile .action2
+.main-about .content .profile .button
 {
     text-align: center;
     min-width: 200px;
@@ -628,7 +575,7 @@ section{
         align-items: center;
     }
 
-    .main-about .content .profile .action2
+    .main-about .content .profile .button
     {
         width: 50%;
         
@@ -743,9 +690,156 @@ section{
 @media only screen and (max-width: 992px){
     .content-2{
         flex-direction: column;
+        align-items: center;
     }
 
     .skill-content{
         margin: 20px 0;
     }
+}
+
+
+/* My Project */
+
+.main-project{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 70px;
+    padding-bottom: 100px;
+
+}
+.coursel-content .coursel-item{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.coursel-item .img{
+    width: max-content;
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.coursel-item img{
+    width: 300px;
+    margin: 50px;
+}
+
+.coursel-item .coursel-item-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.coursel-item .coursel-item-content h1{
+    font-size: 27.5px;
+    color: var(--main-title);
+}
+
+.coursel-item .coursel-item-content p{
+    font-size: 17.px;
+    color: var(--text);
+    max-width: 500px;
+}
+
+.button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid var(--background-keempat);
+    border-radius: 15px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    font-size: 19px;
+    color: var(--scd-title);
+    z-index: 1;
+   }
+   
+   .button:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 90%;
+    width: 140%;
+    height: 180%;
+    background: linear-gradient(45deg, var(--orange), var(--red)) ;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+   }
+   
+   .button:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background: linear-gradient(45deg, var(--orange), var(--red)) ;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+   }
+   
+   .button:hover {
+    color: var(--main-title);
+    border: 1px solid transparent;
+   }
+   
+   .button:hover:before {
+    top: -35%;
+    background: linear-gradient(45deg, var(--orange), var(--red)) ;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+   }
+   
+   .button:hover:after {
+    top: -45%;
+    background: linear-gradient(45deg, var(--orange), var(--red)) ;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+   }
+
+.swiper-pagination{
+    position: absolute;
+    bottom: 0;
+}
+
+.swiper-pagination-bullet{
+    background-color: var(--red);
+}
+
+.swiper-pagination-bullet-active{
+    background-color: var(--orange);
+}
+.swiper-pagination-bullet{
+    outline: none;
+}
+
+
+@media only screen and (max-width: 992px){
+    
+    .coursel-item .coursel-item-content div{
+        margin: 20px 0;    
+    }
+    .coursel-content .coursel-item{
+        flex-direction: column;
+        align-items: center;
+    }
+    .coursel-item .coursel-item-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0 20px;
+    }
+
 }

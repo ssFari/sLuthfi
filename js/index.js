@@ -187,3 +187,28 @@ skillHeader.forEach((el) => {
 });
 
 
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  const swiper = new Swiper('.content-swiper', {
+    // Optional parameters
+    autoplay: {
+      delay: 5000,
+    },
+    speed: 1000,
+    spaceBetween: 100,
+    loop: true,
+    effect: 'slide',
+  
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
+    keyboard:true,
+  });
+
+
+});

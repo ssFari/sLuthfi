@@ -3,6 +3,7 @@
 
 
 :root{
+    --true-black: #000;
     --background-pertama: #0e0e0e   ;
     --background-kedua: #131313;
     --background-ketiga: #1e1e1ea8;
@@ -843,3 +844,93 @@ section{
     }
 
 }
+
+
+/* ================================================ */
+/* service */
+
+.main-service{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+
+.content-service{
+    margin: 50px 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-item{
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: max-content;
+    background: var(--true-black);
+    border-radius: 30px;
+}
+
+.service-icon{
+    position: absolute;
+    background: linear-gradient(45deg, var(--orange), var(--red)) ;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: translate(30%,-50%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.service-icon img{width: 48px;}
+
+.service-title{
+    margin: 20px;
+    margin-top: 60px;
+    color: var(--main-title);
+}
+
+.service-content{
+    margin: 0 20px;
+    color: var(--scd-title);
+}
+
+.service-content .button {
+    width: 100px;
+    padding: 5px 10px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.service-content .button a {
+    font-size: 14px;
+    color: var(--scd-title);
+    text-decoration: none;
+}
+.service-content .button:hover a{
+    color: var(--main-title);
+}
+
+.service-info-popup{
+    display: none;
+}
+
+
+@media only screen and (max-width: 992px){
+    .service-item{
+        margin: 50px 0;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    .content-service{
+        margin: 50px 20px;
+    }
+}
+

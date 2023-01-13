@@ -1,5 +1,14 @@
 // btn-navbar
 
+// const btnNav = document.querySelector(".navbar-btn");
+// const navMenu = document.querySelector("#navMenu");
+// const iconNav = document.querySelector("#icon");
+
+// btnNav.addEventListener("click", () => {
+//   navMenu.classList.toggle("active");
+//   iconNav.classList.toggle("fa-xmark");
+// }); 
+
 const btnNav = document.querySelector(".navbar-btn");
 const navMenu = document.querySelector("#navMenu");
 const iconNav = document.querySelector("#icon");
@@ -7,6 +16,13 @@ const iconNav = document.querySelector("#icon");
 btnNav.addEventListener("click", () => {
   navMenu.classList.toggle("active");
   iconNav.classList.toggle("fa-xmark");
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".navbar-btn, #navMenu")) {
+    navMenu.classList.remove("active");
+    iconNav.classList.remove("fa-xmark");
+  }
 });
 
 
@@ -210,5 +226,36 @@ document.addEventListener("DOMContentLoaded", function() {
     keyboard:true,
   });
 
+
+});
+
+
+
+
+/**Service */
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  let currentPopup = null;
+  const serviceInfo = document.querySelectorAll('.service-content .button'),
+      popUp = document.querySelectorAll('.service-info-popup'),
+      closePopup = document.querySelectorAll('.decs-title .fa-xmark-circle');
+
+  serviceInfo.forEach(function(button, index) {
+      button.addEventListener('click', function() {
+          if (currentPopup !== null) {
+              popUp[currentPopup].classList.remove("active");
+          }
+          currentPopup = index;
+          popUp[index].classList.add("active");
+      });
+  });
+
+  closePopup.forEach(function(button) {
+      button.addEventListener('click', function() {
+          this.parentNode.parentNode.classList.remove("active");
+          currentPopup = null;
+      });
+  });
 
 });

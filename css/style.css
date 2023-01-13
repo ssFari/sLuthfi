@@ -908,17 +908,65 @@ section{
     margin: 20px 0;
 }
 
-.service-content .button a {
+.service-content .button span {
     font-size: 14px;
     color: var(--scd-title);
-    text-decoration: none;
+    transition: .3s linear;
 }
-.service-content .button:hover a{
+.service-content .button:hover span{
     color: var(--main-title);
 }
 
 .service-info-popup{
-    display: none;
+    overflow: hidden;
+    height: 0;
+    position: absolute;
+    top: calc(50% - 60px);
+    width: 100%;
+    max-width: 260px;
+    z-index: 2;
+    padding: 0;
+
+    background: rgba(67, 67, 67, 0.23);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.1px);
+    -webkit-backdrop-filter: blur(8.1px);
+}
+
+.service-info-popup.active{
+    height: calc(100% + 10px);
+    padding: 20px;
+}
+
+.service-info-popup .decs-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-info-popup .decs-title h3{
+    padding-right: 5px;
+}
+
+.service-info-popup .decs-title i {
+    cursor: pointer;
+    color: var(--scd-title);
+    transition: .3s linear;
+}
+
+.service-info-popup .decs-title i:hover{
+    color: var(--main-title);
+}
+
+.service-info-popup ul{
+    margin: 20px 10px; 
+}
+
+.service-info-popup ul li{
+    list-style: disc;
+    color: var(--scd-title);
+    padding-bottom: 5px;
 }
 
 

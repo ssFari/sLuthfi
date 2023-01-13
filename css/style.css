@@ -36,7 +36,6 @@ section{
 
 .container{
     position: relative;
-    scroll-snap-type: y proximity;
     width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -866,7 +865,7 @@ section{
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("/asset/man-1866784.jpg");
+    background-image: url("../asset/man-1866784.jpg");
     background-position: center;
     background-size: cover;
     filter: brightness(.3) blur(5px) contrast(1);

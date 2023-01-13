@@ -855,8 +855,22 @@ section{
     height: auto;
     padding-top: 70px;
     padding-bottom: 100px;
+    
 }
 
+.main-service::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("/asset/man-1866784.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: brightness(.3) blur(5px) contrast(1);
+}
 
 .content-service{
     margin: 50px 100px;
@@ -927,7 +941,7 @@ section{
     z-index: 2;
     padding: 0;
 
-    background: rgba(67, 67, 67, 0.23);
+    background: rgba(185, 185, 185, 0.23);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8.1px);
@@ -935,7 +949,10 @@ section{
 }
 
 .service-info-popup.active{
-    height: calc(100% + 10px);
+    height: 100%;
+    max-height: 350px;
+    overflow-y: scroll;
+    scrollbar-color: var(--orange);
     padding: 20px;
 }
 
@@ -951,6 +968,7 @@ section{
 
 .service-info-popup .decs-title i {
     cursor: pointer;
+    font-size: 20px;
     color: var(--scd-title);
     transition: .3s linear;
 }
@@ -960,12 +978,12 @@ section{
 }
 
 .service-info-popup ul{
-    margin: 20px 10px; 
+    margin: 20px 10px;
 }
 
 .service-info-popup ul li{
     list-style: disc;
-    color: var(--scd-title);
+    color: var(--text);
     padding-bottom: 5px;
 }
 

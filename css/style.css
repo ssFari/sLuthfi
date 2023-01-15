@@ -1145,8 +1145,15 @@ section{
     padding-bottom: 100px;
 }
 
-.content-contact{position: relative;
+.content-contact{
+    position: relative;
     margin: 0 100px;
+    overflow: hidden;
+background: rgba(30, 30, 30, 0.6588235294117647);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
 }
 
 .content-contact .bgtop{
@@ -1272,7 +1279,6 @@ section{
     border-bottom: 1px solid var(--scd-title);
     background-color: transparent;
     color: var(--main-title);
-    width: 50%;
     transition: .3s linear;
 }
 
@@ -1280,15 +1286,47 @@ section{
     border-color: var(--orange);
 }
 
-.form-control :is(.form-input:focus, .form-input:valid) + .form-label{
+.form-control .form-input:focus + .form-label{
     transform: translateY(-50%) scale(.9);
     margin: 0em;
     padding: 0.4em;
     top: 0;
 }
 
+.form-control .form-input:valid + .form-label{
+    transform: translateY(-50%) scale(.9);
+    margin: 0em;
+    padding: 0.4em;
+    top: 0;
+}
+
+.form-control .form-input:valid{
+    border-color: var(--orange);
+
+}
 
 
+@media only screen and (max-width: 992px){
+    .content-contact .content-info{
+        flex-direction: column;
+    }
+
+    .content-contact .content-info .contact-info{
+        max-width: 100%;
+    }
+
+    .content-info .contact-info .title-info p{
+        max-width: 400px;
+    }
+}
+
+
+
+@media only screen and (max-width: 576px){
+    .content-contact{
+        margin: 0 20px
+    }
+}
 
 
 

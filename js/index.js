@@ -1,13 +1,18 @@
-// btn-navbar
+const observer =  new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry);
+    if (entry.isIntersecting){
+      entry.target.classList.add('show')
+      observer.unobserve(entry.target);
+    }else{
+      entry.target.classList.remove('show')
+    }
+  });
+});
 
-// const btnNav = document.querySelector(".navbar-btn");
-// const navMenu = document.querySelector("#navMenu");
-// const iconNav = document.querySelector("#icon");
+  const hiddenElement = document.querySelectorAll('.hidden');
+  hiddenElement.forEach((el) => observer.observe(el));
 
-// btnNav.addEventListener("click", () => {
-//   navMenu.classList.toggle("active");
-//   iconNav.classList.toggle("fa-xmark");
-// }); 
 
 const btnNav = document.querySelector(".navbar-btn");
 const navMenu = document.querySelector("#navMenu");
